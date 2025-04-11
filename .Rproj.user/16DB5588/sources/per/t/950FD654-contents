@@ -25,17 +25,17 @@ colnames(retornos_rb) <- "Retornos_RB"
 # Passo 3: Testar estacionariedade
 library(tseries)
 adf.test(retornos_rb)     # H0: Série Não estacionária
-# H1: Série Estacionária
+                          # H1: Série Estacionária
 
 kpss.test(retornos_rb)    # H0: Série Estacionária
-# H0: Série Não Estacionária
+                          # H0: Série Não Estacionária
 
 # Passo 4: Análise exploratória
 par(mfrow = c(2, 1))
 plot(retornos_rb, main = "Variação % Retornos Mensais ", col = "blue4", lwd = 1)
 hist(retornos_rb, breaks = 25, main = "Distribuição dos Retornos % Mensais", 
      xlab = "Retornos", col = "lightcoral", probability = TRUE)
-lines(density(retornos_rb), col = "blue", lwd = 2)
+lines(density(retornos_rb), col = "blue4", lwd = 2)
 ArchTest(retornos_rb, lags = 12)
 par(mfrow = c(1,1))
 
